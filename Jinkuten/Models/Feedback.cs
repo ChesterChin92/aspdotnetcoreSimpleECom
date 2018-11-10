@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Jinkuten.Models
 {
@@ -11,7 +12,7 @@ namespace Jinkuten.Models
 
         public long ProductId { get; set; }
 
-        public long AspNetUsersId { get; set; }
+        public long AspNetUserId { get; set; }
 
         public string FeedbackMessage { get; set; }
     }

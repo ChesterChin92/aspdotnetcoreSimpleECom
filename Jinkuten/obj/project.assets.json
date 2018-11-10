@@ -12225,11 +12225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\segidev\\source\\repos\\Jinkuten\\Jinkuten\\Jinkuten.csproj",
+      "projectUniqueName": "C:\\Users\\segidev\\source\\repos\\JinkutenBeta\\aspdotnetcoreSimpleECom\\Jinkuten\\Jinkuten.csproj",
       "projectName": "Jinkuten",
-      "projectPath": "c:\\users\\segidev\\source\\repos\\Jinkuten\\Jinkuten\\Jinkuten.csproj",
+      "projectPath": "C:\\Users\\segidev\\source\\repos\\JinkutenBeta\\aspdotnetcoreSimpleECom\\Jinkuten\\Jinkuten.csproj",
       "packagesPath": "C:\\Users\\segidev\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\segidev\\source\\repos\\Jinkuten\\Jinkuten\\obj\\",
+      "outputPath": "C:\\Users\\segidev\\source\\repos\\JinkutenBeta\\aspdotnetcoreSimpleECom\\Jinkuten\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

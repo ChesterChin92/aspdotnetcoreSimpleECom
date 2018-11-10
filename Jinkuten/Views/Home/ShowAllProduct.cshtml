@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Jinkuten.Models.Product>
+﻿@model Jinkuten.Models.ViewModelProduct
 
 @{
     ViewData["Title"] = "ShowAllProduct";
@@ -13,28 +13,27 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                ProductName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductPrice)
+                ProductPrice
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Description
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductPublishedDate)
+               ProductPublishedDate
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageName)
+               ImageName
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AspNetUsersId)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.products) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
@@ -49,17 +48,18 @@
                 @Html.DisplayFor(modelItem => item.ProductPublishedDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageName)
+                <img src="~/images/@item.ImageName" height="100px" width="auto">
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AspNetUsersId)
-            </td>
-            <td>
-                <a asp-action="UpdateProduct" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="DeleteProduct" asp-route-id="@item.Id">Delete</a> |
-                <a asp-action="ShowAllReview" asp-route-id="@item.Id">Review</a> |
+                @if (item.AspNetUsersId == @Model.Id)
+                {
+                    <a asp-action="UpdateProduct" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="DeleteProduct" asp-route-id="@item.Id">Delete</a>
+                }
+
+                <a asp-action="ShowAllFeedback" asp-route-id="@item.Id">Feedback</a> |
                 <a asp-action="AddCart" asp-route-id="@item.Id">Cart</a> |
-                <a asp-action="AddWishList" asp-route-id="@item.Id">WishList</a> |
+                <a asp-action="AddWishList" asp-route-id="@item.Id">WishList</a>
 
             </td>
         </tr>

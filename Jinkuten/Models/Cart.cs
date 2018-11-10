@@ -12,5 +12,7 @@ namespace Jinkuten.Models
         public long AspNetUsersId { get; set; }
 
         public long ProductId { get; set; }
+
+        public Product Product { get; set; }
     }
 }

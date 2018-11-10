@@ -1,0 +1,42 @@
+﻿@model Jinkuten.Models.ViewModelAddFeedback
+
+@{
+    ViewData["Title"] = "ShowAllFeedback";
+}
+
+<h2>ShowAllFeedback</h2>
+
+<p>
+    <a asp-action="AddFeedback" asp-route-id="@Model.Id">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>
+                Feedback Message
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Feedback) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackMessage)
+            </td>
+            <td>
+                @if (item.AspNetUserId == @Model.UserId)
+                {
+                    <a asp-action="DeleteFeedback" asp-route-id="@item.Id">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

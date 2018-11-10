@@ -8,6 +8,8 @@ using Jinkuten.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jinkuten.Controllers
 {
@@ -19,30 +21,12 @@ namespace Jinkuten.Controllers
         public HomeController(Repository repo)
         {
             repository = repo;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+            
+        }        
 
         public void About()
         {
-            UserId = Convert.ToInt64(User.FindFirstValue(ClaimTypes.NameIdentifier));
-
-            Console.WriteLine(UserId);
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            Console.WriteLine(User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -53,7 +37,10 @@ namespace Jinkuten.Controllers
 
         public IActionResult ShowAllProduct()
         {
-            return View("ShowAllProduct", repository.Products);
+            return View("ShowAllProduct", new ViewModelProduct {
+                Id = UserId,
+                products = repository.Products
+            });
         }
 
         public IActionResult UpdateProduct(int Id)
@@ -69,9 +56,23 @@ namespace Jinkuten.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProduct(Product product)
+        public async Task<IActionResult> AddProduct(ViewModelAddProduct product)
         {
-            repository.AddProduct(product);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", Path.GetFileName(product.ImageFile.FileName));
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await product.ImageFile.CopyToAsync(stream);
+            }
+
+            repository.AddProduct(new Product {
+                ProductName = product.ProductName,
+                ProductPrice = product.ProductPrice,
+                Description = product.Description,
+                ProductPublishedDate = DateTime.Now,
+                ImageName = Path.GetFileName(product.ImageFile.FileName),
+                AspNetUsersId = UserId
+            });
             return RedirectToAction(nameof(ShowAllProduct));
         }
 
@@ -86,14 +87,9 @@ namespace Jinkuten.Controllers
             return RedirectToAction(nameof(ShowAllProduct));
         }
 
-        public IActionResult ShowAllReview(int Id)
-        {
-            return View("ShowAllReview", repository.Feedbacks.Where(p=>p.ProductId == Id));
-        }
-
         public IActionResult ShowAllCart()
         {
-            return View("ShowAllCart", repository.Carts.Where(p=>p.AspNetUsersId == UserId));
+            return View("ShowAllCart", repository.Carts.Where(p=>p.AspNetUsersId == UserId).Include("Product"));
         }
 
         public IActionResult AddCart(int Id)
@@ -110,7 +106,7 @@ namespace Jinkuten.Controllers
 
         public IActionResult ShowAllWishList()
         {
-            return View("ShowAllWishList", repository.WishLists.Where(p=>p.AspNetUsersId == UserId));
+            return View("ShowAllWishList", repository.WishLists.Where(p=>p.AspNetUsersId == UserId).Include("Product"));
         }
 
         public IActionResult AddWishList(int Id)
@@ -123,6 +119,35 @@ namespace Jinkuten.Controllers
         {
             repository.DeleteWishList(new WishList { Id = Id });
             return RedirectToAction(nameof(ShowAllWishList));
+        }
+
+        public IActionResult ShowAllFeedback(int Id)
+        {
+            return View("ShowAllFeedback", new ViewModelAddFeedback {
+                Feedback = repository.Feedbacks.Where(p => p.ProductId == Id),
+                Id = Id,
+                UserId = UserId
+            });
+        }
+
+        public IActionResult AddFeedback(int Id)
+        {
+            return View("AddFeedback", new ViewModelAddFeedback {
+                Id = Id,
+                UserId = UserId
+            });
+        }
+
+        [HttpPost]
+        public IActionResult AddFeedback(ViewModelAddFeedback vm)
+        {
+            repository.AddFeedback(new Feedback
+            {
+                ProductId = vm.Id,
+                AspNetUserId = vm.UserId,
+                FeedbackMessage = vm.fbk.FeedbackMessage
+            });
+            return RedirectToAction(nameof(ShowAllProduct));
         }
     }
 }

@@ -5,14 +5,12 @@ using System.Threading.Tasks;
 
 namespace Jinkuten.Models
 {
-    public class WishList
+    public class ViewModelProduct
     {
         public long Id { get; set; }
 
-        public long ProductId { get; set; }
+        public Product product { get; set; }
 
-        public long AspNetUsersId { get; set; }
-
-        public Product Product { get; set; }
+        public IQueryable<Product> products { get; set; }
     }
 }
