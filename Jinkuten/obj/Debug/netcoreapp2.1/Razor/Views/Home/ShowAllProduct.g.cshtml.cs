@@ -68,7 +68,7 @@ using Jinkuten.Models;
             WriteLiteral("\r\n<h2>Product</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(128, 41, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdef84fac87c4c4d8531239de94665d8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ff6be46b5994747888064cc75dff389", async() => {
                 BeginContext(155, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -218,7 +218,7 @@ using Jinkuten.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1622, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4e4b3e27788447f89d76fed780a8444", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad577e77a5cb432bbde3516123a61b63", async() => {
                 BeginContext(1676, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -253,7 +253,7 @@ using Jinkuten.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1704, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0dbc12e808d64ec2b6442cebad11d9b5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fedfcd63e06d4f2291f1b4465949fe80", async() => {
                 BeginContext(1758, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -288,7 +288,7 @@ using Jinkuten.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1788, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6036d6dadbb44ddc9bf03de1a7fd0944", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b3b25ac036b4cf3b7e8ca5ffc6267a5", async() => {
                 BeginContext(1842, 6, true);
                 WriteLiteral("Review");
                 EndContext();
@@ -323,7 +323,7 @@ using Jinkuten.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1872, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "101f21601869434ab527756641f7a8f6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e3f81d7f1374093b8409295b1226c0c", async() => {
                 BeginContext(1920, 4, true);
                 WriteLiteral("Cart");
                 EndContext();
@@ -358,7 +358,7 @@ using Jinkuten.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1948, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "352a72120c564d46994e6c222273389c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f93350d1ee2243d299bed4dacbcbf740", async() => {
                 BeginContext(2000, 8, true);
                 WriteLiteral("WishList");
                 EndContext();

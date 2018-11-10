@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Friend With Paws</a>
+        <a class="navbar-brand" href="#">Jinkuten</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,6 +24,12 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="Home" asp-action="ShowAllProduct">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="ShowAllCart">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Home" asp-action="ShowAllWishList">Wish List</a>
                 </li>
             </ul>
             <partial name="_LoginPartial">
